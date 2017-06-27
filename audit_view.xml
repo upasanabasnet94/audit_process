@@ -1,0 +1,380 @@
+<!--<?xml version="1.0"?>-->
+
+<odoo>
+
+<record id="project_form1" model="ir.ui.view">
+        <field name="name">project.task.form</field>
+        <field name="model">project.task</field>
+        <field name="type">form</field>
+        <field name="inherit_id" ref="project.view_task_form2"/>
+        <field name="arch" type="xml">
+
+                 <data>
+                   <field name="date_deadline" position="before">
+<field name="task_dep" />
+</field>
+
+
+
+
+                     <xpath expr="//page[1]" position="before">
+	    	<page string='Checklist'>
+
+
+
+                <group name="top">
+
+                        <!--<field name="checklist1"/>-->
+       <field name="checklist1" nolabel="1" colspan="4" mode="tree">
+                <!--<tree string="login tree"  editable="True" delete="false" insert="false" create="false">-->
+                    <tree string="login tree" editable="True">
+                    <field name="Name"/>
+                    <field name="select"/>
+                        <field name="remark"/>
+                </tree>
+                        </field>
+                </group>
+
+	    	</page>
+                </xpath>
+
+            <!--<field name="name" position="attributes">-->
+                    <!--<attribute name="placeholder">Check List...</attribute>-->
+            <!--</field>-->
+
+
+                      <field name="project_id" position="attributes">
+                    <attribute name="string">Audit Process</attribute>
+            </field>
+
+
+
+
+            </data>
+
+                </field>
+    </record>
+
+
+
+ <record id="project_form_inherited" model="ir.ui.view">
+        <field name="name">project.project.form.dashboard</field>
+        <field name="model">project.project</field>
+        <field name="type">form</field>
+     <field name="inherit_id" ref="project.edit_project"/>
+        <field name="arch" type="xml">
+
+<field name="name" position="attributes">
+    <attribute name="string">Audit Process </attribute>
+</field>
+
+
+
+            <field name="name" position="attributes">
+                    <attribute name="placeholder">Audit Process.... </attribute>
+                </field>
+
+
+
+
+ <xpath expr='//form/sheet/div/div/div/label' position="replace">
+
+                    <label for="use_tasks" class="oe_inline" string="Check List"/>
+                </xpath>
+
+
+<xpath expr="/form/sheet/notebook/page/group[1]/field" position="replace">
+            <field name="user_id" string="Audit Manager" attrs="{'readonly':[('active','=',False)]}"/>
+        </xpath>
+
+
+            <!--<xpath expr="//page/field[@name]=user_id" position="attributes">-->
+	    	<!--<attribute name="name">Audit Manager</attribute>-->
+
+
+<!--</xpath>-->
+            <!--<field name="user_id" position="attributes">-->
+                    <!--<attribute name="name">Audit Manager</attribute>-->
+                <!--</field>-->
+
+
+<!--<xpath expr="/form/sheet/notebook/page/group[1]/field[@name='user_id']" position="replace">-->
+            <!--<attribute name="name">Audit Manager</attribute>-->
+        <!--</xpath>-->
+
+            <!--<xpath expr="/form/sheet/notebook/page[1]/field[@name='note']" position="after">-->
+
+            <!--<group>-->
+
+                <!--<field name="type"/>-->
+
+            <!--</group>-->
+            <!---->
+
+
+        </field>
+    </record>
+
+
+
+
+<!--<record id="project_report_task1" model="ir.actions.act_window">-->
+        <!--<field name="name">report.project.task.user123</field>-->
+        <!--<field name="model">report.project.task.user</field>-->
+        <!--<field name="type">form</field>-->
+      <!--<field name="inherit_id" ref="project.action_project_task_user_tree"/>-->
+        <!--<field name="arch" type="xml">-->
+
+<!--<field name="nbr" position="attributes">-->
+    <!--<attribute name="string"># Check List</attribute>-->
+<!--</field>-->
+
+
+        <!--</field>-->
+    <!--</record>-->
+
+
+
+
+
+
+
+  <record id="project_form_inherit" model="ir.ui.view">
+        <field name="name">project.project.form.sub</field>
+        <field name="model">project.project</field>
+        <field name="type">form</field>
+      <field name="inherit_id" ref="project.project_project_view_form_simplified"/>
+        <field name="arch" type="xml">
+
+<field name="name" position="attributes">
+    <attribute name="string">Audit process</attribute>
+</field>
+            <field name="name" position="attributes">
+                    <attribute name="placeholder">Audit process...</attribute>
+                </field>
+
+
+        </field>
+    </record>
+
+
+
+
+
+
+    <record id="project_form" model="ir.ui.view">
+        <field name="name">project.project.tree</field>
+        <field name="model">project.project</field>
+        <field name="type">form</field>
+
+        <field name="inherit_id" ref="project.view_project"/>
+        <field name="arch" type="xml">
+
+<field name="name" position="attributes">
+    <attribute name="string">Audit process</attribute>
+</field>
+
+            <field name="user_id" position="attributes">
+                <attribute name="string">Audit Manager</attribute>
+        </field>
+
+        </field>
+    </record>
+
+
+
+
+
+
+
+ <!--<record id="project_kanban_1" model="ir.ui.view">-->
+        <!--<field name="name">project.project.kanban.1</field>-->
+        <!--<field name="model">project.project</field>-->
+        <!--<field name="type">form</field>-->
+
+        <!--<field name="inherit_id" ref="project.view_project_kanban"/>-->
+        <!--<field name="arch" type="xml">-->
+
+ <!--<xpath expr='//kanban/templates/t/div/div/div/div/div[2]/a' position="replace">-->
+
+                    <!--<a name="524" type="action">Check List</a>-->
+                <!--</xpath>-->
+
+
+
+
+        <!--</field>-->
+    <!--</record>-->
+
+
+
+
+    <record id="project_search_1" model="ir.ui.view">
+        <field name="name">project.project.search.1</field>
+        <field name="model">project.task</field>
+        <field name="type">search</field>
+
+        <field name="inherit_id" ref="project.view_task_search_form"/>
+        <field name="arch" type="xml">
+
+
+
+
+<!--<field name="name" position="attributes">-->
+                <!--<attribute name="string">Check List</attribute>-->
+        <!--</field>-->
+
+             <field name="project_id" position="attributes">
+                <attribute name="string">Audit Process</attribute>
+        </field>
+
+            <!--<filter name="my_tasks" position="attributes">-->
+            <!--<attribute name = "string">MY check list</attribute>-->
+        <!--</filter>-->
+
+
+             <xpath expr='//search/group' position="replace">
+
+                    <filter string="Audit Process" name="project" context="{'group_by':'project_id'}"/>
+                        <!--<filter string="Check List" context="{'group_by':'name'}"/>-->
+                </xpath>
+
+        </field>
+    </record>
+
+
+
+
+
+
+
+
+
+ <record id="project_project_search_1" model="ir.ui.view">
+        <field name="name">project.project.search.12</field>
+        <field name="model">project.project</field>
+        <field name="type">search</field>
+
+        <field name="inherit_id" ref="project.view_project_project_filter"/>
+        <field name="arch" type="xml">
+
+
+
+
+<field name="name" position="attributes">
+                <attribute name="string">Audit Process</attribute>
+        </field>
+
+             <field name="user_id" position="attributes">
+                <attribute name="string">Audit Manager</attribute>
+        </field>
+
+
+
+        </field>
+    </record>
+
+
+
+
+
+    <record id="checklist.check_form_12" model="ir.ui.view">
+        <field name="name">checklist.check.from.123</field>
+        <field name="model">checklist.check</field>
+        <field name="type">form</field>
+
+        <field name="inherit_id" ref="checklist.view_form_checklist"/>
+        <field name="arch" type="xml">
+
+<field name="Name" position="after">
+                <field name="task"/>
+        </field>
+
+<field name="task" position="attributes">
+<attribute name="invisible">1</attribute>
+</field>
+
+
+
+
+        </field>
+    </record>
+
+
+
+<record id="project_project_tree_1" model="ir.ui.view">
+        <field name="name">project.project.tree.12</field>
+        <field name="model">audit.department</field>
+        <field name="type">tree</field>
+<field name="arch" type="xml">
+        <tree string="Steps" editable="True">
+                <field name="department"/>
+            </tree>
+
+
+
+        </field>
+    </record>
+
+
+
+   <menuitem id="project.menu_main_pm" name="Work Station"/>
+
+<!--<menuitem id="checklist.action_check_list" name=""/>-->
+
+<menuitem id="project.menu_projects_config"  parent="project.menu_project_config" name="Audit Process"/>
+
+    <!--<menuitem id="project.menu_action_view_task" parent="project.menu_project_management" name="Checklist" sequence="10"/>-->
+    <!--<menuitem id="project.menu_action_view_task" parent="project.menu_project_management" name="Checklist" sequence="10"/>-->
+
+
+
+
+    <!--<record id="project.act_project_project_2_project_task_all" model="ir.actions.act_window">-->
+        <!--<field name="name">Checklist</field>-->
+<!--</record>-->
+
+<record id="project.open_view_project_all_config" model="ir.actions.act_window">
+        <field name="name">Work Station</field>
+</record>
+
+    <!--<record id="project.action_view_task" model="ir.actions.act_window">-->
+        <!--<field name="name">Check List</field>-->
+<!--</record>-->
+
+     <record id="project.open_view_project_all" model="ir.actions.act_window">
+        <field name="name">Audit Process</field>
+</record>
+
+    <record id="project.open_create_project" model="ir.actions.act_window">
+        <field name="name">Create Audit Process</field>
+</record>
+
+        <record id="project.action_project_task_user_tree" model="ir.actions.act_window">
+        <field name="name">Create Audit Process</field>
+</record>
+
+
+
+
+
+
+    <record id="project_tagss_action" model="ir.actions.act_window">
+        <field name="name">Check</field>
+        <field name="res_model">checklist.check</field>
+        <field name="view_type">form</field>
+        <!--<field name="help" type="html">-->
+        <!---->
+        <!--</field>-->
+    </record>
+
+
+    <!--<menuitem id="contacts_view_audit" name="Config" parent="project.menu_main_pm" />-->
+    <menuitem id="audit_tree" name="Check List" parent="project.menu_project_management" sequence="10" action="project_tagss_action"/>
+
+
+<act_window id="action_audit_department" name ="Department" res_model="audit.department" view_mode="tree,form"/>
+        <menuitem id ="menu_audit_department"  parent = "project.menu_project_config" sequence="20" action="action_audit_department"/>
+
+</odoo>
+
